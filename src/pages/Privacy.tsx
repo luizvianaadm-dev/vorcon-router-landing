@@ -46,8 +46,18 @@ export default function Privacy() {
 
           <h2 className="text-lg font-semibold text-white mt-8 mb-4">4. Seus Direitos (LGPD)</h2>
           <p>
-            Você tem o direito de solicitar a exclusão definitiva da sua conta, revogação do token do WhatsApp e apagamento dos dados cadastrais a qualquer momento através do seu Dashboard ou acionando nosso suporte (DPO).
+            Você tem o direito de solicitar a exclusão definitiva da sua conta, revogação do token do WhatsApp e apagamento dos dados cadastrais a qualquer momento através do seu Dashboard ou acionando nosso suporte.
           </p>
+
+          <h2 className="text-lg font-semibold text-white mt-8 mb-4">5. Contato e Encarregado de Dados</h2>
+          <p>
+            Para tratar de assuntos relacionados à privacidade, dados ou suporte empresarial, utilize nossos canais oficiais:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 font-mono text-xs mt-2 text-brand-teal">
+            <li><strong>Diretoria/Master:</strong> luizviana@vorcon-aio.com.br</li>
+            <li><strong>DPO (Proteção de Dados):</strong> dpo@vorcon-aio.com.br</li>
+            <li><strong>Contato Comercial:</strong> contato@vorcon-aio.com.br</li>
+          </ul>
         </div>
 
         <div className="mt-12 pt-8 border-t border-slate-800 text-center">

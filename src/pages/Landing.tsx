@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Zap, Lock, Database, Cpu, MessageSquare, Clock } from 'lucide-react';
+import { Shield, Zap, Lock, Database, Cpu, MessageSquare, Clock, Play, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Landing() {
   const navigate = useNavigate();
+  const [showVideo, setShowVideo] = useState(false);
 
   return (
     <div className="min-h-screen relative font-sans text-slate-200">
@@ -63,9 +64,12 @@ export default function Landing() {
               >
                 Iniciar Integração
               </button>
-              <button className="px-8 py-4 rounded-full glass-panel text-white font-semibold hover:bg-slate-800 transition-all duration-300 flex items-center gap-2">
-                <span className="font-mono font-bold text-brand-whatsapp">{'>_'}</span>
-                Ver Documentação
+              <button 
+                onClick={() => setShowVideo(true)}
+                className="px-8 py-4 rounded-full glass-panel text-white font-semibold hover:bg-slate-800 transition-all duration-300 flex items-center gap-2"
+              >
+                <Play className="w-5 h-5 text-brand-whatsapp fill-brand-whatsapp" />
+                Ver Apresentação
               </button>
             </div>
           </motion.div>
@@ -207,6 +211,27 @@ export default function Landing() {
           </div>
         </div>
       </main>
+
+      {/* Video Modal */}
+      {showVideo && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+          <div className="relative w-full max-w-5xl rounded-2xl overflow-hidden shadow-2xl border border-slate-700 bg-black">
+            <button 
+              onClick={() => setShowVideo(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 bg-black/60 hover:bg-red-500/80 rounded-full flex items-center justify-center text-white transition-colors border border-slate-600 hover:border-red-400"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <video 
+              controls 
+              autoPlay 
+              className="w-full h-auto aspect-video object-cover"
+            >
+              <source src="/presentation.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

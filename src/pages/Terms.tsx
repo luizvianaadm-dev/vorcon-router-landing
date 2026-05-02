@@ -44,6 +44,16 @@ export default function Terms() {
           <p>
             O serviço é fornecido "no estado em que se encontra". Embora o nosso sistema Anti-Ban minimize drasticamente os riscos, não garantimos imunidade absoluta contra bloqueios pelas redes das operadoras finais, visto que o conteúdo trafegado é de inteira responsabilidade do contratante.
           </p>
+
+          <h2 className="text-lg font-semibold text-white mt-8 mb-4">5. Canais de Comunicação</h2>
+          <p>
+            Para notificações formais, dúvidas jurídicas ou contato comercial, as partes devem utilizar exclusivamente os seguintes endereços eletrônicos da <strong>VORCON AIO LTDA</strong>:
+          </p>
+          <ul className="list-disc pl-5 space-y-2 font-mono text-xs mt-2 text-brand-whatsapp">
+            <li><strong>Administração:</strong> luizviana@vorcon-aio.com.br</li>
+            <li><strong>Jurídico/DPO:</strong> dpo@vorcon-aio.com.br</li>
+            <li><strong>Comercial:</strong> contato@vorcon-aio.com.br</li>
+          </ul>
         </div>
 
         <div className="mt-12 pt-8 border-t border-slate-800 text-center">
