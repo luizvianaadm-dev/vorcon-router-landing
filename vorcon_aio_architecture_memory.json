@@ -1,0 +1,16 @@
+{
+  "corporate_structure": {
+    "holding": "Vorcon HOLDING LTDA",
+    "holding_location": "RS - Porto Alegre",
+    "holding_role": "Dona dos códigos e IP, 100% controlada por Luiz Viana",
+    "operating_company": "VORCON AIO LTDA",
+    "operating_location": "Manaus - AM",
+    "operating_role": "Dona da licença de uso e comercialização de todos os SaaS no ecossistema",
+    "domain": "vorcon-aio.com.br"
+  },
+  "technical_decisions": {
+    "n8n_usage": false,
+    "lead_capture": "Atualmente sem N8N, necessita definição futura da ferramenta de webhook/capture (Make, Zapier, custom)",
+    "admin_auth": "AURA Sentinel Omnichannel (apenas o raiozinho verde, sem input de Service Role visível)"
+  }
+}
