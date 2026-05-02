@@ -23,7 +23,7 @@ export default function Register() {
 
     try {
       // 1. Criar Auth no Supabase
-      const { data, error: signUpError } = await supabase.auth.signUp({
+      const { error: signUpError } = await supabase.auth.signUp({
         email: formData.email,
         password: formData.password,
         options: {
