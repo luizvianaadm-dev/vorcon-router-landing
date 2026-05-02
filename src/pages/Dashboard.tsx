@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { LogOut, Zap, Shield, Smartphone, RefreshCw, QrCode } from 'lucide-react';
+import { LogOut, Zap, Shield, Smartphone, QrCode } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 import { QRCodeSVG } from 'qrcode.react';
 

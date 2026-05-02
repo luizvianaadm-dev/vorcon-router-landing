@@ -1,22 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Zap, Lock, Database, Cpu, MessageSquare, Terminal, KeyRound, Clock } from 'lucide-react';
+import { Shield, Zap, Lock, Database, Cpu, MessageSquare, Clock } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Landing() {
-  const [showAuth, setShowAuth] = useState(false);
-  const [authKey, setAuthKey] = useState('');
-  const [isAuthenticating, setIsAuthenticating] = useState(false);
   const navigate = useNavigate();
-
-  const handleAuth = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsAuthenticating(true);
-    setTimeout(() => {
-      setIsAuthenticating(false);
-      navigate('/login');
-    }, 1000);
-  };
 
   return (
     <div className="min-h-screen relative font-sans text-slate-200">
