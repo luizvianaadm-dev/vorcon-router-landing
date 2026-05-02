@@ -73,10 +73,10 @@ export default function Landing() {
                 onClick={() => navigate('/register')}
                 className="px-8 py-4 rounded-full bg-gradient-to-r from-brand-whatsapp to-brand-teal text-white font-bold hover:shadow-[0_0_25px_rgba(37,211,102,0.5)] transition-all duration-300 transform hover:-translate-y-1"
               >
-                Criar Conta Grátis
+                Iniciar Integração
               </button>
               <button className="px-8 py-4 rounded-full glass-panel text-white font-semibold hover:bg-slate-800 transition-all duration-300 flex items-center gap-2">
-                <Terminal className="w-5 h-5" />
+                <span className="font-mono font-bold text-brand-whatsapp">{'>_'}</span>
                 Ver Documentação
               </button>
             </div>
