@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
-import { KeyRound, Shield, AlertCircle } from 'lucide-react';
+import { KeyRound, Shield, AlertCircle, Eye, EyeOff } from 'lucide-react';
 import { supabase } from '../lib/supabase';
 
 export default function Register() {
@@ -13,6 +13,7 @@ export default function Register() {
     document: '', // CPF ou CNPJ
     password: ''
   });
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -150,15 +151,32 @@ export default function Register() {
 
               <div>
                 <label className="block text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">Senha</label>
+                <div className="relative">
+                  <input 
+                    type={showPassword ? "text" : "password"}
+                    required
+                    value={formData.password}
+                    onChange={e => setFormData({...formData, password: e.target.value})}
+                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-whatsapp focus:ring-1 focus:ring-brand-whatsapp transition-all font-mono"
+                    placeholder="••••••••"
+                    minLength={6}
+                  />
+                  <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors">
+                    {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3 mt-4">
                 <input 
-                  type="password"
-                  required
-                  value={formData.password}
-                  onChange={e => setFormData({...formData, password: e.target.value})}
-                  className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-brand-whatsapp focus:ring-1 focus:ring-brand-whatsapp transition-all font-mono"
-                  placeholder="••••••••"
-                  minLength={6}
+                  type="checkbox" 
+                  id="terms" 
+                  required 
+                  className="mt-1 w-4 h-4 rounded border-slate-700 bg-slate-900 text-brand-whatsapp focus:ring-brand-whatsapp focus:ring-offset-slate-900" 
                 />
+                <label htmlFor="terms" className="text-xs text-slate-400 leading-relaxed">
+                  Eu concordo com os <Link to="/termos" className="text-brand-whatsapp hover:underline">Termos de Uso</Link> e a <Link to="/privacidade" className="text-brand-whatsapp hover:underline">Política de Privacidade</Link> da VORCON AIO LTDA.
+                </label>
               </div>
 
               <button 
