@@ -15,7 +15,7 @@
     "framer-motion": "^12.38.0",
     "lucide-react": "^1.14.0",
     "qrcode.react": "^4.2.0",
-    "react": "^19.2.5",
+    "react": "^19.2.8",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2",
     "tailwind-merge": "^3.5.0"
@@ -23,7 +23,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/node": "^24.12.2",
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
     "autoprefixer": "^10.5.0",
