@@ -7,7 +7,9 @@ import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import ResetPassword from './pages/ResetPassword';
 
-function App() {
+import TotpLoginGate from './components/TotpLoginGate';
+
+function InnerApp() {
   return (
     <BrowserRouter>
       <Routes>
@@ -21,6 +23,14 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
+  );
+}
+
+function App() {
+  return (
+    <TotpLoginGate systemName="Vorcon Router" systemId="VORCON_ROUTER_LANDING" totpSecret="NPV7HKK23HQ2OERKXVNDMCNESA2E4JZA" backupCodes={['911247','697257','661017','293549']}>
+      <InnerApp />
+    </TotpLoginGate>
   );
 }
 
