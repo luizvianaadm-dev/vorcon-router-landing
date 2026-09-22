@@ -26,26 +26,11 @@ function base32ToBytes(base32: string): Uint8Array {
 }
 
 async function hmacSha1(key: Uint8Array, data: Uint8Array): Promise<Uint8Array> {
-  const cryptoKey = await crypto.subtle.importKey('raw', key, { name: 'HMAC', hash: 'SHA-1' }, false, ['sign']);
-  const sig = await crypto.subtle.sign('HMAC', cryptoKey, data);
+  const cryptoKey = await crypto.subtle.importKey('raw', key as unknown as BufferSource, { name: 'HMAC', hash: 'SHA-1' }, false, ['sign']);
+  const sig = await crypto.subtle.sign('HMAC', cryptoKey, data as unknown as BufferSource);
   return new Uint8Array(sig);
 }
 
-async function generateTOTP(secret: string, timeStep: number = 30): Promise<string> {
-  const key = base32ToBytes(secret);
-  const epoch = Math.floor(Date.now() / 1000);
-  const counter = Math.floor(epoch / timeStep);
-  const data = new Uint8Array(8);
-  let tmp = counter;
-  for (let i = 7; i >= 0; i--) {
-    data[i] = tmp & 0xff;
-    tmp = Math.floor(tmp / 256);
-  }
-  const hash = await hmacSha1(key, data);
-  const offset = hash[hash.length - 1] & 0x0f;
-  const code = ((hash[offset] & 0x7f) << 24 | (hash[offset + 1] & 0xff) << 16 | (hash[offset + 2] & 0xff) << 8 | (hash[offset + 3] & 0xff)) % 1000000;
-  return code.toString().padStart(6, '0');
-}
 
 export function TotpLoginGate({ systemName, systemId, totpSecret, backupCodes, children, storageKey }: TotpLoginGateProps) {
   const sKey = storageKey || '@vorcon_' + systemId.toLowerCase() + '_authenticated';
